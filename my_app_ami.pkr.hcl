@@ -13,8 +13,6 @@ locals {
 
 source "amazon-ebs" "ubuntu" {
   ##ami_name      = "my_first_ami_{{isotime '2006.01.02.15:04:05'}}"
-  aws_access_key = var.aws_access_key
-  aws_secret_key = var.aws_secret_key
   ami_name = "my_first_ami_${local.timestamp}"
   instance_type = "t2.micro"
   region        = "${var.my_region}"
