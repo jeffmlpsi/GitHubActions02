@@ -15,13 +15,17 @@ jobs:
         run: ls -lh
       - name: Get Packer
         run: |
-          "echo getting: wget https://releases.hashicorp.com/packer/1.7.3/packer_1.7.3_linux_amd64.zip"
-          wget https://releases.hashicorp.com/packer/1.7.3/packer_1.7.3_linux_amd64.zip
-          ls -lh packer_1.7.3_linux_amd64.zip
-          unzip packer_1.7.3_linux_amd64.zip
-          sudo mv packer /usr/local/bin
+          sudo apt update
+          sudo apt upgrade -y
+          sudo apt install -y wget unzip
+          # "echo getting: wget https://releases.hashicorp.com/packer/1.7.3/packer_1.7.3_linux_amd64.zip"
+          # wget https://releases.hashicorp.com/packer/1.7.3/packer_1.7.3_linux_amd64.zip
+          # ls -lh packer_1.7.3_linux_amd64.zip
+          # unzip packer_1.7.3_linux_amd64.zip
+          # sudo mv packer /usr/local/bin
+          # packer --version
+          sudo apt install -y packer
           packer --version
-          # sudo apt install -y packer
       - name: Build Image
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
