@@ -6,7 +6,8 @@ on:
       - main
 jobs:
   BuildMyAppContainerImage:
-    runs-on: ubuntu-latest
+    # runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - run: echo "Does this work?"
       - name: Setup Code
@@ -15,12 +16,12 @@ jobs:
         run: ls -lh
       - name: Get Packer
         run: |
-          echo "***apt update***"
-          sudo apt update
-          echo "***apt upgrade -y***"
-          sudo apt upgrade -y
-          echo "***apt dist-upgrade -y***"
-          sudo apt dist-upgrade -y 
+          # echo "***apt update***"
+          # sudo apt update
+          # echo "***apt upgrade -y***"
+          # sudo apt upgrade -y
+          # echo "***apt dist-upgrade -y***"
+          # sudo apt dist-upgrade -y 
           # sudo apt install -y wget unzip
           # "echo getting: wget https://releases.hashicorp.com/packer/1.7.3/packer_1.7.3_linux_amd64.zip"
           # wget https://releases.hashicorp.com/packer/1.7.3/packer_1.7.3_linux_amd64.zip
