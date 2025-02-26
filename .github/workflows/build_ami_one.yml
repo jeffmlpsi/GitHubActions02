@@ -14,7 +14,14 @@ jobs:
       - name: Check that checkout worked
         run: ls -lh
       - name: Get Packer
-        run: sudo apt install -y packer
+        run: |
+          "echo getting: wget https://releases.hashicorp.com/packer/1.7.3/packer_1.7.3_linux_amd64.zip"
+          wget https://releases.hashicorp.com/packer/1.7.3/packer_1.7.3_linux_amd64.zip
+          ls -lh packer_1.7.3_linux_amd64.zip
+          unzip packer_1.7.3_linux_amd64.zip
+          sudo mv packer /usr/local/bin
+          packer --version
+          # sudo apt install -y packer
       - name: Build Image
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
