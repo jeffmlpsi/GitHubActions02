@@ -13,6 +13,8 @@ locals {
 
 source "amazon-ebs" "ubuntu" {
   ##ami_name      = "my_first_ami_{{isotime '2006.01.02.15:04:05'}}"
+  aws_access_key = var.aws_access_key
+  aws_secret_key = var.aws_secret_key
   ami_name = "my_first_ami_${local.timestamp}"
   instance_type = "t2.micro"
   region        = "${var.my_region}"
@@ -67,4 +69,12 @@ variable "my_region" {
 variable "source_ami_name" {
   type = string
   default = "us-west-1 image for Ubuntu_22.04"
+}
+variable "aws_access_key" {
+  type = string
+  default = "ASIAWIJIU5DAZT4H4VAL"
+}
+variable "aws_secret_key" {
+  type = string
+  default = "WasIcx1ibE9hPfiQoDaivJ4EpVo7dJ7QKfiWJ7rl"
 }
